@@ -1,0 +1,31 @@
+# Build
+/out
+/dist
+/build
+
+# Front-End
+public/**/*.ts
+public/**/*.js
+public/**/*.tsx
+public/**/*.jsx
+public/**/*.html
+
+src/glxp/**/*.ts
+src/glxp/**/*.js
+src/glxp/**/*.tsx
+src/glxp/**/*.jsx
+
+src/vendors/**/*.ts
+src/vendors/**/*.js
+src/vendors/**/*.tsx
+src/vendors/**/*.jsx
+
+# Utilities
+src/utils/helpers/**/*.ts
+src/utils/helpers/**/*.js
+
+# Webpack
+webpack.config.js
+
+# Misc
+README.md

@@ -1,0 +1,109 @@
+@use 'sass:map';
+
+// Breakpoints List
+@use '../utils/breakpoints' as *;
+
+// Set up a decent box model on the root element
+// -----------------------------------------------------------------------------
+html {
+  height: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+* {
+
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+// Set up body size to fill screen
+// -----------------------------------------------------------------------------
+body {
+  width: 100%;
+  height: 100%;
+}
+
+// Set up global SVG container
+// -----------------------------------------------------------------------------
+.svg {
+  display: inline-block;
+
+  svg {
+    display: block;
+  }
+}
+
+// Create CSS variables and add global styles based on grid configuration
+// -----------------------------------------------------------------------------
+@each $use,
+$value in $breakpoints {
+  @if map.has-key($config, $use) {
+    /**
+     * Configuration:
+     *
+     * We get the configuration to use.
+     */
+    $props: map-get($config, $use);
+
+    @include mq($from: $use) using ($from) {
+      /**
+       * SCSS Variables:
+       *
+       * We build our SCSS variables to store then in CSS ones for further usage.
+       */
+      $grid-columns: map-get($props, 'grid-columns');
+      $grid-gutters: $grid-columns - 1;
+
+      $grid-size: map-get($props, 'grid-size');
+      $grid-edge: map-get($props, 'grid-edge');
+      $grid-gutter: map-get($props, 'grid-gutter');
+
+      /**
+       * CSS Variables:
+       *
+       * We create CSS variables and fill them SCSS value in order to reuse them in JS.
+       */
+      :root {
+        --grid-columns: #{$grid-columns};
+        --grid-gutters: #{$grid-gutters};
+
+        --grid-edge: #{$grid-edge};
+        --grid-gutter: #{$grid-gutter};
+
+        --grid-size: #{$grid-size};
+        --grid-size-max: calc(var(--grid-size) + (2 * var(--grid-edge)));
+      }
+
+      /**
+       * Global Styles:
+       *
+       * We apply some global styles to the DOM elements based on our configuration of the grid system.
+       */
+      .site-wrapper {
+        padding-left: $grid-edge;
+        padding-right: $grid-edge;
+      }
+
+      .container {
+        max-width: var(--grid-size);
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "@dogstudio/dogstudio-react-starter",
+  "version": "v1.0.0-beta.0",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/Dogstudio/dogstudio-react-starter",
+  "description": "Opinionated React starter by Dogstudio",
+  "scripts": {
+    "dev": "webpack-dev-server --env development --mode development",
+    "lint": "eslint --ext js,jsx src",
+    "build": "webpack --env production --mode production",
+    "upgrade": "ncu"
+  },
+  "engineStrict": true,
+  "engines": {
+    "npm": ">=6.14.0",
+    "node": ">=14.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Dogstudio/dogstudio-react-starter/issues",
+    "email": "devops@dogstudio.be"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dogstudio/dogstudio-react-starter.git"
+  },
+  "browserslist": [
+    "last 2 version",
+    "not ie > 0",
+    "not bb > 0",
+    "not kaios > 0",
+    "not baidu > 0",
+    "not ie_mob > 0",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "fast-deep-equal": "^3.1.3",
+    "i18next": "^22.4.9",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.4",
+    "react-router-dom": "^6.8.2",
+    "ua-parser-js": "^1.0.32"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "babel-runtime": "^6.26.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^5.1.14",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "glslify-import": "^3.1.0",
+    "glslify-loader": "^2.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "npm-check-updates": "^16.6.2",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.0.2",
+    "prettier": "^2.8.2",
+    "raw-loader": "^4.0.2",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
