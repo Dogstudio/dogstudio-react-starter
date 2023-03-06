@@ -16,9 +16,7 @@ const Grid = ({ className }) => {
   /**
    * Local State:
    */
-  const [state, setState] = useState({
-    showToolbar: true,
-  })
+  const [showToolbar, setShowToolbar] = useState(true)
 
   /**
    * References:
@@ -31,17 +29,15 @@ const Grid = ({ className }) => {
    */
   const classNames = ClassNames(className, {
     'site-grid__toolbar': true,
-    'site-grid__toolbar--hidden': !state.showToolbar,
+    'site-grid__toolbar--hidden': !showToolbar,
   })
 
   /**
    * Handlers:
    */
   const handleToolbarToggle = useCallback(() => {
-    setState((draft) => {
-      draft.showToolbar = !draft.showToolbar
-    })
-  }, [setState])
+    setShowToolbar(!showToolbar)
+  }, [showToolbar, setShowToolbar])
 
   /**
    * Lifecycle:

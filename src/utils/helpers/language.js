@@ -43,7 +43,6 @@ export const getDefaultLocale = () => {
  * @return {String} Supported locales
  */
 export const getSupportedLocales = () => {
-  console.log(process.env.APP_SUPPORTED_LOCALES)
   return process.env.APP_SUPPORTED_LOCALES || 'en'
 }
 
